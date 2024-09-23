@@ -1,0 +1,41 @@
+html {
+    margin: 0;
+    background-color: #333;
+}
+
+.relative {
+    position: relative;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.h-auto {
+    height: auto;
+}
+
+tspan {
+    fill: white;
+    transition: fill 0.3s ease;
+}
+
+path {
+    stroke: white;
+    stroke-width: 1px;
+    stroke-dasharray: 40;
+    stroke-dashoffset: 40;
+    transition: stroke-dashoffset 0.5s ease;
+}
+
+.hovered tspan {
+    fill: rgba(255, 255, 255, 0.7);
+}
+
+.hovered path {
+    stroke-dashoffset: 0;
+}
