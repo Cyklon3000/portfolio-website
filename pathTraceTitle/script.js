@@ -69,25 +69,29 @@ function createWordSVG(word)
     
     // Create background blur filter
     const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-    const filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
-    filter.setAttribute('id', 'blur');
-    const feGaussianBlur = document.createElementNS('http://www.w3.org/2000/svg', 'feGaussianBlur');
-    feGaussianBlur.setAttribute('stdDeviation', '5');
-    filter.appendChild(feGaussianBlur);
-    defs.appendChild(filter);
-    // svg.insertBefore(defs, svg.firstChild);
+    const clipPath = document.createElementNS('http://www.w3.org/2000/svg', 'clipPath');
+    clipPath.setAttribute('id', 'blur-letter-paths');
+    defs.appendChild(clipPath);
+    svg.insertBefore(defs, svg.firstChild);
     
+    function createLetterPath(letter, isBlurLetterPath) {
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("class", `letter-path letter-path-${letter}`)
+        if (isBlurLetterPath) {
+            path.setAttribute("class", `letter-path letter-path-${letter} blur-letter-path`)
+        }
+        path.setAttribute("d", letterPaths[letter]);
+        path.setAttribute("transform", `translate(${totalWidth}, 0)`);
+        return path
+    }
+
     let totalWidth = 0;
     word.toUpperCase().split('').forEach((letter, index) =>
     {
         if (letterPaths[letter])
         {
-            const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-            path.setAttribute("class", `letter-path letter-path-${letter}`)
-            path.setAttribute("d", letterPaths[letter]);
-            path.setAttribute("transform", `translate(${totalWidth}, 0)`);
-            // path.setAttribute("filter", "url(#blur)")
-            svg.appendChild(path);
+            svg.appendChild(createLetterPath(letter, isBlurLetterPath=false));
+            clipPath.appendChild(createLetterPath(letter, isBlurLetterPath=true))
 
             totalWidth += letterWidths[letter] + LETTER_SPACING;
         }

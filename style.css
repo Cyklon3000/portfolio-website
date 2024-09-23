@@ -1,41 +1,20 @@
 html {
     margin: 0;
-    background-color: #333;
+    background-color: #151515;
+    color: white;
+    font-family: sans-serif;
 }
 
-.relative {
-    position: relative;
+ul {
+    font-size: 4rem;
+    list-style: none;
 }
 
-.inline-block {
-    display: inline-block;
+ul a {
+    color: white;
+    text-decoration: none;
 }
 
-.w-full {
-    width: 100%;
-}
-
-.h-auto {
-    height: auto;
-}
-
-tspan {
-    fill: white;
-    transition: fill 0.3s ease;
-}
-
-path {
-    stroke: white;
-    stroke-width: 1px;
-    stroke-dasharray: 40;
-    stroke-dashoffset: 40;
-    transition: stroke-dashoffset 0.5s ease;
-}
-
-.hovered tspan {
-    fill: rgba(255, 255, 255, 0.7);
-}
-
-.hovered path {
-    stroke-dashoffset: 0;
+ul a::before {
+    content: '🔗 ';
 }
