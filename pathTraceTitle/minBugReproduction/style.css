@@ -1,0 +1,28 @@
+html {
+    background-image: url(https://picsum.photos/id/210/480/270);
+}
+
+#navbar {
+    list-style: none;
+}
+
+#navbar .letter-path {
+    fill: white;
+    stroke: transparent;
+    stroke-width: 0.057;
+}
+
+#navbar svg:hover .letter-path {
+    fill: rgba(255, 255, 255, 0.15);
+    stroke: white;
+}
+
+#blurred-clip-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    clip-path: url(#blur-letter-paths);
+    filter: blur(10px);
+    z-index: -1;
+}
+

@@ -58,5 +58,6 @@ html {
     left: 0;
     clip-path: url(#blur-letter-paths);
     filter: blur(10px);
+    z-index: -1;
 }
 
