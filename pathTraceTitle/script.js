@@ -78,7 +78,7 @@ function createWordSVG(word)
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
         path.setAttribute("class", `letter-path letter-path-${letter}`)
         if (isBlurLetterPath) {
-            path.setAttribute("class", `letter-path letter-path-${letter} blur-letter-path`)
+            path.setAttribute("class", `blur-letter-path letter-path-${letter}`)
         }
         path.setAttribute("d", letterPaths[letter]);
         path.setAttribute("transform", `translate(${totalWidth}, 0)`);

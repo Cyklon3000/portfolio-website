@@ -2,7 +2,7 @@ html {
     margin: 0;
     background-color: #151515;
     color: white;
-    background-image: url(https://picsum.photos/id/20/1000/800);
+    background-image: url(https://picsum.photos/id/18/1000/800);
     background-repeat: no-repeat;
 }
 
@@ -31,7 +31,8 @@ html {
 }
 
 #navbar .letter-path {
-    fill: white;
+    /* fill: white; */
+    fill: transparent;
     stroke: transparent;
     stroke-width: calc(1/(35*0.5)); /*30 = SCALE_FACTOR*/
     stroke-dasharray: 30;
@@ -39,11 +40,15 @@ html {
     transition: fill 0.1s ease-in 0.1s, stroke 0.25s ease-out, stroke-dashoffset 0s linear 0.25s;
 }
 
+#navbar .blur-letter-path {
+    fill: white;
+}
+
 #navbar svg:hover .letter-path {
     stroke-dashoffset: 0;
     /* stroke: white; */
     /* fill: rgba(255, 255, 255, 0.15); */
-    fill: transparent;
+    fill: #f002;
     transition: fill 0.25s ease-out, stroke 0s, stroke-dashoffset 0.5s ease-in 0.1s;
 }
 
@@ -54,3 +59,4 @@ html {
     clip-path: url(#blur-letter-paths);
     filter: blur(10px);
 }
+
