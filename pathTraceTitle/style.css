@@ -1,25 +1,13 @@
-html {
-    margin: 0;
+/* html {
     background-color: #151515;
     color: white;
-    background-image: url(https://picsum.photos/id/18/1000/800);
-    background-repeat: no-repeat;
+    background-image: url(brickWall-500x500.jpg);
+    background-size: 500px 500px;
 }
 
-.relative {
-    position: relative;
-}
-
-.inline-block {
-    display: inline-block;
-}
-
-.w-full {
-    width: 100%;
-}
-
-.h-auto {
-    height: 200px;
+body {
+    margin: 0;
+    padding: 0;
 }
 
 #navbar {
@@ -31,33 +19,52 @@ html {
 }
 
 #navbar .letter-path {
-    /* fill: white; */
-    fill: transparent;
+    fill: white;
     stroke: transparent;
-    stroke-width: calc(1/(35*0.5)); /*30 = SCALE_FACTOR*/
-    stroke-dasharray: 30;
-    stroke-dashoffset: 30;
+    stroke-width: 2.5;
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
     transition: fill 0.1s ease-in 0.1s, stroke 0.25s ease-out, stroke-dashoffset 0s linear 0.25s;
 }
 
-#navbar .blur-letter-path {
-    fill: white;
-}
-
 #navbar svg:hover .letter-path {
+    fill: rgba(255, 255, 255, 0.3);
+    stroke: white;
     stroke-dashoffset: 0;
-    /* stroke: white; */
-    /* fill: rgba(255, 255, 255, 0.15); */
-    fill: #f002;
     transition: fill 0.25s ease-out, stroke 0s, stroke-dashoffset 0.5s ease-in 0.1s;
 }
 
 #blurred-clip-background {
-    position: absolute;
-    top: 0;
-    left: 0;
     clip-path: url(#blur-letter-paths);
-    filter: blur(10px);
-    z-index: -1;
+    filter: blur(3px);
+} */
+
+html {
+    background-image: url(brickWall-500x500.jpg);
+    background-size: 500px 500px;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#navbar {
+    list-style: none;
+}
+
+#navbar .letter-path {
+    fill: white;
+    stroke: transparent;
+    stroke-width: 2.5;
+}
+
+#navbar svg:hover .letter-path {
+    fill: rgba(255, 255, 255, 0.3);
+    stroke: white
+}
+
+#blurred-clip-background {
+    clip-path: url(#blur-letter-paths);
+    filter: blur(2px);
+}

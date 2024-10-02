@@ -1,5 +1,11 @@
 html {
-    background-image: url(https://picsum.photos/id/210/480/270);
+    background-image: url(brickWall-500x500.jpg);
+    background-size: 500px 500px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
 }
 
 #navbar {
@@ -9,20 +15,15 @@ html {
 #navbar .letter-path {
     fill: white;
     stroke: transparent;
-    stroke-width: 0.057;
+    stroke-width: 2.5;
 }
 
 #navbar svg:hover .letter-path {
-    fill: rgba(255, 255, 255, 0.15);
-    stroke: white;
+    fill: rgba(255, 255, 255, 0.3);
+    stroke: white
 }
 
 #blurred-clip-background {
-    position: absolute;
-    top: 0;
-    left: 0;
     clip-path: url(#blur-letter-paths);
-    filter: blur(10px);
-    z-index: -1;
+    filter: blur(2px);
 }
-
