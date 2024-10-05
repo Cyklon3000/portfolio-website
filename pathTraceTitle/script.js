@@ -71,14 +71,14 @@ function createWordSVG(word)
     clipPath.setAttribute('id', 'blur-letter-paths');
     const image = document.createElementNS('https://www.w3.org/2000/svg', 'image')
     image.setAttribute('id', 'blurred-clip-background');
-    image.setAttribute('x', '0');
-    image.setAttribute('y', '0');
+    image.setAttribute('x', '-40');
+    image.setAttribute('y', '-16');
     image.setAttribute('width', '500');
     image.setAttribute('height', '500');
-    image.setAttribute('href', 'brickWall-500x500.jpg');
+    image.setAttribute('href', 'https://picsum.photos/id/210/500/500'); // xlink:href didn't work either
     
-    svg.appendChild(defs, svg.firstChild);
-    svg.appendChild(image)
+    svg.appendChild(defs);
+    svg.appendChild(image);
 
     let totalWidth = 0;
     word.toUpperCase().split('').forEach((letter, index) =>

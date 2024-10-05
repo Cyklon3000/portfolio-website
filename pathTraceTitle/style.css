@@ -1,7 +1,7 @@
-/* html {
+html {
     background-color: #151515;
     color: white;
-    background-image: url(brickWall-500x500.jpg);
+    background-image: url(https://picsum.photos/id/210/500/500);
     background-size: 500px 500px;
 }
 
@@ -12,10 +12,7 @@ body {
 
 #navbar {
     font-family: 'Katahdin Round', 'Arial Narrow Bold', sans-serif;
-    font-size: 0;
     list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
 #navbar .letter-path {
@@ -37,34 +34,4 @@ body {
 #blurred-clip-background {
     clip-path: url(#blur-letter-paths);
     filter: blur(3px);
-} */
-
-html {
-    background-image: url(brickWall-500x500.jpg);
-    background-size: 500px 500px;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-}
-
-#navbar {
-    list-style: none;
-}
-
-#navbar .letter-path {
-    fill: white;
-    stroke: transparent;
-    stroke-width: 2.5;
-}
-
-#navbar svg:hover .letter-path {
-    fill: rgba(255, 255, 255, 0.3);
-    stroke: white
-}
-
-#blurred-clip-background {
-    clip-path: url(#blur-letter-paths);
-    filter: blur(2px);
 }
