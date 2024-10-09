@@ -32,6 +32,5 @@ body {
 }
 
 #blurred-clip-background {
-    clip-path: url(#blur-letter-paths);
     filter: blur(3px);
 }

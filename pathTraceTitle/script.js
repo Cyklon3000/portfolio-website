@@ -61,21 +61,30 @@ const letterWidths = {
 const LETTER_SPACING = 8;
 const HEIGHT = 100;
 
+let currentListItem = 0;
+
 // Function to create SVG for a word
 function createWordSVG(word)
 {
+    // Setup svg of structure
+    // svg
+    //     > defs
+    //         > <path>'s     (individual letter paths)
+    //         > clipPath > <use>'s     (for clipping image to letter paths; referencing <path>'s)
+    //     > image     (using clipPath as clip-path)
+    //     > <use>'s (for overlay display of letters; referencing <path>'s )
+
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
     const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
     const clipPath = document.createElementNS('http://www.w3.org/2000/svg', 'clipPath');
-    clipPath.setAttribute('id', 'blur-letter-paths');
-    const image = document.createElementNS('https://www.w3.org/2000/svg', 'image')
+    clipPath.setAttribute('id', `blur-letter-paths-${currentListItem}`);
+    const image = document.createElementNS('http://www.w3.org/2000/svg', 'image')
     image.setAttribute('id', 'blurred-clip-background');
-    image.setAttribute('x', '-40');
-    image.setAttribute('y', '-16');
+    image.style = `clip-path: url(#blur-letter-paths-${currentListItem})`;
     image.setAttribute('width', '500');
     image.setAttribute('height', '500');
-    image.setAttribute('href', 'https://picsum.photos/id/210/500/500'); // xlink:href didn't work either
+    image.setAttribute('href', 'https://picsum.photos/id/210/500/500');
     
     svg.appendChild(defs);
     svg.appendChild(image);
@@ -97,7 +106,7 @@ function createWordSVG(word)
 
     function createLetterPath(letter, index) {
         const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        path.setAttribute("id", `letter-path-${index}`)
+        path.setAttribute("id", `letter-path-${currentListItem}-${index}`)
         path.setAttribute("class", `letter-path-${letter}`)
         path.setAttribute("d", letterPaths[letter]);
         path.setAttribute("transform", `translate(${totalWidth}, 0)`);
@@ -106,7 +115,7 @@ function createWordSVG(word)
 
     function createLetterUse(index, isPath) {
         const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-        use.setAttribute("href", `#letter-path-${index}`)
+        use.setAttribute("href", `#letter-path-${currentListItem}-${index}`)
         if (isPath) {
             use.setAttribute("class", `letter-path`)
         }
@@ -119,6 +128,8 @@ function createWordSVG(word)
     return svg;
 }
 
+const headingSVGs = [];
+
 // Main function to replace text in list items with SVGs
 function replaceTextWithSVG()
 {
@@ -128,10 +139,39 @@ function replaceTextWithSVG()
     {
         const text = li.textContent.trim();
         const svg = createWordSVG(text);
+        headingSVGs.push(svg);
         li.textContent = ''; // Clear the text
         li.appendChild(svg);
+
+        currentListItem += 1
     });
 }
 
+
 // Call the function when the document is ready
 document.addEventListener('DOMContentLoaded', replaceTextWithSVG);
+
+function getTopRightCorners() {
+    function getTopRightCorner(svg) {
+        const rect = svg.getBoundingClientRect();
+        const x = rect.left;
+        const y = rect.top;
+
+        // get image
+        const image = svg.getElementsByTagName('image')[0];
+        
+        image.setAttribute('x', -x);
+        image.setAttribute('y', -y);
+    }
+
+    for (const svg of headingSVGs) {
+        getTopRightCorner(svg);
+        console.log("Hi");
+    }
+}
+
+// Update compensating image shift
+window.addEventListener('scroll', getTopRightCorners);
+window.addEventListener('resize', getTopRightCorners);
+
+document.addEventListener('DOMContentLoaded', getTopRightCorners);
