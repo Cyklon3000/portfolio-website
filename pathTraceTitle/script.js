@@ -84,7 +84,7 @@ function createWordSVG(word)
     image.style = `clip-path: url(#blur-letter-paths-${currentListItem})`;
     image.setAttribute('width', '500');
     image.setAttribute('height', '500');
-    image.setAttribute('href', 'brickWall-500x500.jpg');
+    image.setAttribute('href', 'https://picsum.photos/1920/1080?random=1;');
     
     svg.appendChild(defs);
     svg.appendChild(image);

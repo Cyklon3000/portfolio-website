@@ -1,8 +1,7 @@
 html {
     background-color: #151515;
     color: white;
-    background-image: url(brickWall-500x500.jpg);
-    background-size: 500px 500px;
+    background-image: url(https://picsum.photos/1920/1080?random=1);
 }
 
 body {
