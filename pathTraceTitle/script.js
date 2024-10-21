@@ -82,9 +82,9 @@ function createWordSVG(word)
     const image = document.createElementNS('http://www.w3.org/2000/svg', 'image')
     image.setAttribute('id', 'blurred-clip-background');
     image.style = `clip-path: url(#blur-letter-paths-${currentListItem})`;
-    image.setAttribute('width', '500');
-    image.setAttribute('height', '500');
-    image.setAttribute('href', 'https://picsum.photos/1920/1080?random=1;');
+    image.setAttribute('width', '1920');
+    image.setAttribute('height', '1080');
+    image.setAttribute('href', 'https://picsum.photos/id/655/1920/1080');
     
     svg.appendChild(defs);
     svg.appendChild(image);
