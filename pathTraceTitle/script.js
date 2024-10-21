@@ -166,7 +166,6 @@ function getTopRightCorners() {
 
     for (const svg of headingSVGs) {
         getTopRightCorner(svg);
-        console.log("Hi");
     }
 }
 
