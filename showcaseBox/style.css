@@ -1,0 +1,155 @@
+html {
+    background-color: #151515;
+    color: white;
+    background-image: url(https://picsum.photos/1920/1080?random=1);
+}
+
+body {
+    margin: 10px;
+    padding: 0;
+}
+
+.showcase {
+    display: flex;
+    gap: 10px;
+    color: white;
+    font-family: Arial, sans-serif;
+    max-width: 950px;
+}
+
+.showcase a {
+    text-decoration: none;
+    color: white;
+    flex: 1;
+}
+
+.showcase-window {
+    position: relative;
+    overflow: hidden;
+    border-radius: 35px;
+
+}
+
+.showcase-article-cover {
+    height: 400px;
+    background-image: url(https://picsum.photos/700/400?random=1);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.showcase-article-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 15px;
+    padding: 20px;
+    box-sizing: border-box;
+
+    border-radius: 20px;
+
+    /* Dark Frosted Glass */
+    background-color: rgba(32, 32, 32, 0.5);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    border: rgba(128, 128, 128, 0.7) 1px solid;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transition: 
+        background-color 0.15s ease-in-out 0.05s,
+        backdrop-filter 0.15s ease-in-out 0.05s,
+        -webkit-backdrop-filter 0.15s ease-in-out 0.05s,
+        border-color 0.15s ease-in-out 0.05s;
+        box-shadow: 0.15s ease-in-out 0.05s;
+}
+
+.showcase-window:hover .showcase-article-text{
+    background-color: rgba(32, 32, 32, 0.6);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    border-color: rgba(128, 128, 128, 0.9);
+}
+
+.showcase-article-text h2 {
+    margin: 0 0 10px 0;
+    font-size: 24px;
+}
+
+.showcase-article-text p {
+    margin: 0;
+    max-width: 50ch;
+    font-size: 14px;
+}
+
+.showcase-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2px 0;
+}
+
+.showcase-article {
+    display: flex;
+    min-width: calc(75px + 15ch);
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+
+    border-radius: 35px;
+
+    /* Dark Frosted Glass */
+    background-color: rgba(32, 32, 32, 0.5);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    border: rgba(128, 128, 128, 0.7) 1px solid;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transition: 
+        background-color 0.15s ease-in-out 0.05s,
+        backdrop-filter 0.15s ease-in-out 0.05s,
+        -webkit-backdrop-filter 0.15s ease-in-out 0.05s,
+        border-color 0.15s ease-in-out 0.05s;
+}
+
+.showcase-article:hover {
+    background-color: rgba(32, 32, 32, 0.6);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    border-color: rgba(128, 128, 128, 0.9);
+
+    cursor: pointer;
+}
+
+.showcase-article:last-child {
+    border-bottom: none;
+}
+
+.showcase-article img {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.showcase-article p {
+    margin: 0;
+    font-size: 14px;
+}
+
+@media (max-width: calc(50ch + 20px + 15px + 10px + 75px + 15ch + 20px + 38px)) {
+    .showcase {
+        flex-direction: column;
+    }
+
+    .showcase-sidebar {
+        max-height: calc(70px * 3.5);
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        overflow-x: hidden;
+    }
+
+    .showcase-article {
+        max-width: none;
+        flex: 1;
+    }
+}
